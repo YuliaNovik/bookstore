@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/css/mycss.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Dummy Records</h1>
+	<br>
+	<form action="#" th:action="@{/sT}" th:object="${book}" method="get">
+		Search a Book by Title<input type="text" th:name="title"> <input
+			type="submit"><br> <br>
+	</form>
+	<br>
+
+	<form action="#" th:action="@{/sA}" th:object="${book}" method="get">
+		Search a Book by Author<input type="text" th:name="author"> <input
+			type="submit"><br> <br>
+	</form>
+	<br>
+
+	<form action="#" th:action="@{/sC}" th:object="${book}" method="get">
+		Search a Book by Course<input type="text" th:name="courses"> <input
+			type="submit"><br> <br>
+	</form>
+	<br>
+
+	<form action="#" th:action="@{/sQ}" th:object="${book}" method="get">
+		Search a Book by Quantity<input type="text" th:name="invQuant">
+		<input type="submit"><br> <br>
+	</form>
+	<br>
+
+	<form action="#" th:action="@{/sI}" th:object="${book}" method="get">
+		Search a Book by Id<input type="text" th:name="id"> <input
+			type="submit"><br> <br>
+	</form>
+	<br>
+
+	<h2>Oakville</h2>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+
+		</tr>
+		<tr th:each="d:${dummies}" th:if="${d.store=='Oakville'}">
+
+			<td th:text="${d.title}"></td>
+			<td th:text="${d.author}"></td>
+			<td th:text="${d.price}"></td>
+			<td th:text="${d.invQuant}"></td>
+			<td th:text="${d.courses}"></td>
+			<td th:text="${d.store}"></td>
+		</tr>
+	</table>
+
+	<h2>Brampton</h2>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+
+		</tr>
+		<tr th:each="d:${dummies}" th:if="${d.store=='Brampton'}">
+
+			<td th:text="${d.title}"></td>
+			<td th:text="${d.author}"></td>
+			<td th:text="${d.price}"></td>
+			<td th:text="${d.invQuant}"></td>
+			<td th:text="${d.courses}"></td>
+			<td th:text="${d.store}"></td>
+		</tr>
+	</table>
+	<h2>Mississauga</h2>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+
+		</tr>
+		<tr th:each="d:${dummies}" th:if="${d.store=='Mississauga'}">
+			<td th:text="${d.title}"></td>
+			<td th:text="${d.author}"></td>
+			<td th:text="${d.price}"></td>
+			<td th:text="${d.invQuant}"></td>
+			<td th:text="${d.courses}"></td>
+			<td th:text="${d.store}"></td>
+		</tr>
+	</table>
+	<br>
+	<a href="/dummy" th:href="@{/addB}">Go Home</a>
+	<br>
+	<br>
+	<a href="/view" th:href="@{/view}">View and Buy Books in Sheridan
+		Stores</a>
+	<br>
+	<br>
+	<img   src="../static/images/i1.png" th:src="@{/images/i1.png}">
+</body>
+</html>

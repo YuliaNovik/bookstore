@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/mycss.css}">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Oakville Store</h2>
+<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+		</tr>
+		<tr th:each="b:${book}" th:if="${b.store}=='Oakville'">
+		<td th:text="${b.title}"></td>
+		<td th:text="${b.author}"></td>
+		<td th:text="${b.price}"></td>
+	    <td th:text="${b.invQuant}"></td>
+		<td th:text="${b.courses}"></td>
+		<td th:text="${b.store}"></td>
+	    <td><a href="" th:if="${b.invQuant >0}" th:href=@{/purchase1/{id}(id=${b.id})}>Purchase a book</a></td>
+		</tr>
+	</table>
+	
+	<h2>Brampton Store</h2>
+<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+		</tr>
+		<tr th:each="b:${book}" th:if="${b.store}=='Brampton'">
+		<td th:text="${b.title}"></td>
+		<td th:text="${b.author}"></td>
+		<td th:text="${b.price}"></td>
+	    <td th:text="${b.invQuant}"></td>
+		<td th:text="${b.courses}"></td>
+		<td th:text="${b.store}"></td>
+	    <td><a href="" th:if="${b.invQuant >0}" th:href=@{/purchase1/{id}(id=${b.id})}>Purchase a book</a></td>
+		</tr>
+	</table>
+	<h2>Mississauga Store</h2>
+<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>Inventory Quantity</th>
+			<th>Course</th>
+		</tr>
+		<tr th:each="b:${book}" th:if="${b.store}=='Mississauga'">
+		<td th:text="${b.title}"></td>
+		<td th:text="${b.author}"></td>
+		<td th:text="${b.price}"></td>
+	    <td th:text="${b.invQuant}"></td>
+		<td th:text="${b.courses}"></td>
+		<td th:text="${b.store}"></td>
+		<td><a href="" th:if="${b.invQuant >0}" th:href=@{/purchase1/{id}(id=${b.id})}>Purchase a book</a></td>
+		</tr>
+	</table>
+		<a href="/dummy" th:href="@{/dummy}" >Go back to Dummy Records</a><br><br>
+		<a href="/addB" th:href="@{/addB}">Go Home</a><br><br>
+		<a href="/view" th:href="@{/view}">View and Buy Books in Sheridan
+		Stores</a>
+	<br>
+	<br>
+</body>
+</html>
